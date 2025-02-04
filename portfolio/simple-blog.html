@@ -1,0 +1,156 @@
+<html>
+ <head>
+  <title>
+   Simple Blog - John Joseph's Portfolio
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .go-back {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5em;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .blog-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .blog-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: none;
+        }
+        .blog-container img.active {
+            display: block;
+        }
+        .blog-container h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .blog-container p {
+            font-size: 1.2em;
+            color: #666;
+        }
+        .dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: #ddd;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .dot.active {
+            background-color: #333;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+  </style>
+ </head>
+ <body>
+  <header class="header">
+   <h1>
+    Simple Blog
+   </h1>
+   <a class="go-back" href="index.html">
+    <i class="fas fa-arrow-left">
+    </i>
+   </a>
+  </header>
+  <div class="content">
+   <div class="blog-container">
+    <img alt="img1" class="active" src="/blog1.jpg"/>
+    <img alt="img2" src="/blog2.1.jpg"/>
+    <img alt="img3" src="/blog3.jpg"/>
+    <div class="dots">
+     <div class="dot active" onclick="showSlide(0)">
+     </div>
+     <div class="dot" onclick="showSlide(1)">
+     </div>
+     <div class="dot" onclick="showSlide(2)">
+     </div>
+    </div>
+    <h2>
+     My Senior High Graduation
+    </h2>
+    <p>
+        I am thrilled to share my graduation experience with my closest friends. We all worked hard to get to this point, and it was truly rewarding to celebrate this milestone together.    </p> <p>On the bright morning of 5 August 2023 the campus of ACLC College Iriga was alive with excitement as graduates in cap and gown gathered for the ceremony. The journey to this moment was filled with late-night study and laughter-filled breaks every memory being a staple in the fabric of our college experience. Together we reflected on our shared journey standing with friends, hearts racing with joy and nostalgia. As the ceremony began with the National Anthem pride grew as we listened to inspiring speeches. Honors diplomas felt like a shared victory and the chorus of cheers filled the air.
+            After the ceremony laughter and joy continued outdoors as we took countless photos documenting our friendship. We reminisced about our college days at our favorite hangout spot, sharing stories of triumph and lessons learned. Though our paths may diverge, we promised to stay connected and that graduation was not the end but a beginning. We raised our glasses to friendship, memories and the bright futures that lie before us. That day was more than a graduation celebration it was a celebration of our journey, dreams and the unbreakable bonds we had formed.</p>
+   </div>
+  </div>
+  <footer class="footer">
+   <p>
+    © 2025 John Joseph. All rights reserved.
+   </p>
+  </footer>
+  <script>
+   let currentSlide = 0;
+        const slides = document.querySelectorAll('.blog-container img');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            currentSlide = index;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            let nextIndex = (currentSlide + 1) % slides.length;
+            showSlide(nextIndex);
+        }
+
+        setInterval(nextSlide, 5000);
+  </script>
+ </body>
+</html>

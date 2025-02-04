@@ -1,0 +1,182 @@
+<html>
+ <head>
+  <title>
+   John Joseph's Portfolio
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            z-index: 1000;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .sidebar-toggle {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #1629d2;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            position: fixed;
+            top: 10;
+            left: -250px;
+            height: 90%;
+            transition: left 0.3s ease;
+            z-index: 1000;
+        }
+        .sidebar h1 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin: 10px 0;
+            transition: color 0.3s ease;
+        }
+        .sidebar a:hover {
+            color: #ddd;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            overflow: auto;
+            margin-left: 0;
+            transition: margin-left 0.3s ease;
+        }
+        .profile {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .profile img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+        }
+        .profile h2 {
+            margin: 10px 0 0 0;
+            font-size: 1.5em;
+        }
+        .profile p {
+            font-size: 1em;
+            color: #666;
+        }
+        .container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+        }
+        .container img {
+            width: 100%;
+            height: auto;
+            scroll-snap-align: start;
+            flex-shrink: 0;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 5px 0;
+        }
+        .sidebar-open .sidebar {
+            left: 0;
+        }
+        .sidebar-open .content {
+            margin-left: 250px;
+        }
+        .sidebar-close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+  </style>
+ </head>
+ <body>
+  <header class="header">
+   <i class="fas fa-bars sidebar-toggle" onclick="toggleSidebar()">
+   </i>
+   <h1>
+    Welcome to my Portfolio
+   </h1>
+  </header>
+  <div class="sidebar" id="sidebar">
+   <i class="fas fa-times sidebar-close" onclick="toggleSidebar()">
+   </i>
+   <h1>
+   </h1>
+   <a href="/simple-blog.html">
+    Simple Blog
+   </a>
+   <a href="/my-favorite-recipe.html">
+    Favorite Recipe
+   </a>
+   <a href="/event-invitation.html">
+    Event Invitation
+   </a>
+   <a href="/to-do_list.html">
+    To-Do List
+   </a>
+   <a href="/contact-me.html">
+    Contact me
+   </a>
+  </div>
+  <div class="content" id="content">
+   <section class="profile">
+    <img alt="Profile photo of John Joseph" src="/profile-picture.jpg"/>
+    <h2>
+        John Joseph Cueto Bardaje
+    </h2>
+    <p>
+     Web Developer | Blogger | Tech Enthusiast
+    </p>
+   </section>
+   <section class="container" id="pics">
+    <img alt="groufie" src="/ganap1.jpg"/>
+    <img alt="coding_wide-angle" src="/ganap2.jpg"/>
+    <img alt="coding_close-angle" src="/ganap3.jpg"/>
+   </section>
+  </div>
+  <footer class="footer">
+   <p>
+    © 2025 John Joseph. All rights reserved.
+   </p>
+  </footer>
+  <script>
+   function toggleSidebar() {
+            document.body.classList.toggle('sidebar-open');
+        }
+  </script>
+ </body>
+</html>
